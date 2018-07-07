@@ -1,10 +1,5 @@
 import pymysql as MySQLdb
 
-
-#cursor for the database
-
-
-
 def get_users():
     db = MySQLdb.connect("localhost", "root", "root", "angularproject")
     cur = db.cursor()

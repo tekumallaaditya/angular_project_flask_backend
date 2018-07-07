@@ -9,8 +9,6 @@ import helper, re
 db = MySQLdb.connect("localhost", "root", "root", "angularproject")
 cur = db.cursor()
 
-test_data = {'user_1': 'Aditya','user_2': 'Deepika','user_3': 'Small_cutona'}
-
 app = Flask(__name__)
 CORS(app)
 #sess = Session()
@@ -104,7 +102,6 @@ def AddContact():
                 contacts_str = contacts_str + ',' + ContactName + ':' + ContactNumber
 
             print 'after adding->', contacts_str, type(contacts_str)
-            hard_contacts = 'edureka:125645, venkat:235648, hairi: 456547, lata:253145, banerjee: 125645'
             query = """update admin  set ContactList = %s where Uname = %s;"""
             cur.execute(query, (contacts_str, Uname))
             db.commit()
